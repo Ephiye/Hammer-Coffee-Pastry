@@ -12,8 +12,7 @@ const menuData = {
         { name: "Chocolate cake", price: 60 },
         { name: "Banana cake", price: 60 },
         { name: "English cake", price: 60 },
-        { name: "Croissant", price: 60 },
-         { name: "Brownie", price: 70 }
+        { name: "Croissant", price: 60 }
     ],
     drinks: {
         hotTea: [
@@ -49,14 +48,9 @@ const menuData = {
 };
 
 // ===== FUNCTION TO CREATE MENU ITEM HTML =====
-// USING THE CORRECT VERSION WITH menu-item-inner
 function createMenuItem(item) {
     const li = document.createElement('li');
     li.className = 'menu-item';
-    
-    // Create inner wrapper for the bubble background
-    const innerDiv = document.createElement('div');
-    innerDiv.className = 'menu-item-inner';
     
     const nameSpan = document.createElement('span');
     nameSpan.className = 'item-name';
@@ -66,10 +60,8 @@ function createMenuItem(item) {
     priceSpan.className = 'item-price';
     priceSpan.textContent = `${item.price} Br`;
     
-    // Assemble: name + price go inside innerDiv, innerDiv goes inside li
-    innerDiv.appendChild(nameSpan);
-    innerDiv.appendChild(priceSpan);
-    li.appendChild(innerDiv);
+    li.appendChild(nameSpan);
+    li.appendChild(priceSpan);
     
     return li;
 }
