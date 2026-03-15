@@ -48,9 +48,14 @@ const menuData = {
 };
 
 // ===== FUNCTION TO CREATE MENU ITEM HTML =====
+// USING THE CORRECT VERSION WITH menu-item-inner
 function createMenuItem(item) {
     const li = document.createElement('li');
     li.className = 'menu-item';
+    
+    // Create inner wrapper for the bubble background
+    const innerDiv = document.createElement('div');
+    innerDiv.className = 'menu-item-inner';
     
     const nameSpan = document.createElement('span');
     nameSpan.className = 'item-name';
@@ -60,8 +65,10 @@ function createMenuItem(item) {
     priceSpan.className = 'item-price';
     priceSpan.textContent = `${item.price} Br`;
     
-    li.appendChild(nameSpan);
-    li.appendChild(priceSpan);
+    // Assemble: name + price go inside innerDiv, innerDiv goes inside li
+    innerDiv.appendChild(nameSpan);
+    innerDiv.appendChild(priceSpan);
+    li.appendChild(innerDiv);
     
     return li;
 }
