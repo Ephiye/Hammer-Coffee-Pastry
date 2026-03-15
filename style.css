@@ -1,269 +1,171 @@
-/* ===== CSS - Hammer Coffee & Pastry Menu ===== */
-/* BACKGROUND PHOTO IS NOW HIGHLY VISIBLE */
+// ===== JavaScript - Dynamic Menu for Hammer Coffee & Pastry =====
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+// Add class to body to indicate JS is active
+document.body.classList.add('js-active');
 
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: relative;
-}
+// ===== MENU DATA OBJECT - EASILY EDITABLE =====
+const menuData = {
+    cakes: [
+        { name: "Boxegna (custard-filled cream puff)", price: 60 },
+        { name: "Mille feuille", price: 60 },
+        { name: "Custard cake", price: 60 },
+        { name: "Chocolate cake", price: 60 },
+        { name: "Banana cake", price: 60 },
+        { name: "English cake", price: 60 },
+        { name: "Croissant", price: 60 }
+    ],
+    drinks: {
+        hotTea: [
+            { name: "TEA", price: 80 },
+            { name: "GREEN TEA", price: 90 },
+            { name: "GINGER TEA", price: 90 },
+            { name: "GINGER WITH HONEY", price: 120 },
+            { name: "SPECIAL TEA", price: 150 },
+            { name: "HOT CHOCOLATE", price: 200 },
+            { name: "PEANUT TEA", price: 130 }
+        ],
+        espresso: [
+            { name: "ESPRESSO", price: 110 },
+            { name: "DOUBLE ESPRESSO", price: 140 },
+            { name: "SYPHON COFFEE", price: 80 },
+            { name: "TEA ESPRESSO", price: 90 },
+            { name: "MACCHIATO", price: 130 },
+            { name: "DOUBLE MACCHIATO", price: 170 },
+            { name: "FASTING MACCHIATO", price: 250 },
+            { name: "CAFÉ LATTE", price: 150 },
+            { name: "CAPPUCCINO", price: 180 },
+            { name: "PEANUT COFFEE", price: 130 }
+        ],
+        coldDrinks: [
+            { name: "ICE LATTE", price: 210 },
+            { name: "FASTING ICE LATTE", price: 250 },
+            { name: "ICE COFFEE", price: 150 },
+            { name: "ICE TEA", price: 130 },
+            { name: "WATER", price: 100 }
+        ]
+    },
+    footer: "✧ Sweet cakes, strong coffee and a bright day. ✧"
+};
 
-/* BACKGROUND IMAGE - FULLY VISIBLE WITH NO OVERLAY */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('hammer.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: -2;
-}
-
-/* MAIN MENU CONTAINER - EXTREMELY TRANSPARENT */
-.menu-container {
-    max-width: 1200px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    padding: 30px 25px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/* LOGO STYLING */
-.logo-wrapper {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.logo {
-    max-width: 250px;
-    width: 70%;
-    height: auto;
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.1));
-}
-
-/* FALLBACK MENU STYLING */
-.fallback-menu {
-    display: none;
-}
-
-/* SECTION TITLES */
-.section-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #2c1e14;
-    text-align: center;
-    letter-spacing: 2px;
-    margin: 25px 0 15px 0;
-    padding: 10px 20px;
-    background: rgba(255, 255, 245, 0.7);
-    display: inline-block;
-    width: auto;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
-}
-
-.menu-section {
-    text-align: center;
-}
-
-.subsection-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #3a281e;
-    margin: 25px 0 15px 0;
-    padding: 8px 15px;
-    background: rgba(245, 235, 220, 0.8);
-    display: inline-block;
-    border-radius: 40px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* ===== MENU ITEMS WITH NAME AND PRICE AT OPPOSITE CORNERS ===== */
-.menu-items {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.menu-item {
-    /* Remove flex display from li - now using inner div */
-    padding: 0; /* Remove padding - inner div handles it */
-    background: transparent; /* Remove background - inner div handles it */
-    border: none; /* Remove border - inner div handles it */
-    transition: all 0.2s;
-    font-size: 1.1rem;
-}
-
-.menu-item-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 15px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(2px);
-    transition: all 0.2s;
-    width: 100%;
-}
-
-.menu-item:hover .menu-item-inner {
-    transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.8);
-}
-
-.item-name {
-    font-weight: 600;
-    color: #1f1a16;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    padding-right: 0;
-    /* Allow text to shrink if needed */
-    flex: 1 1 auto;
-    /* Truncate extremely long names with ellipsis */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    /* Align to left corner */
-    text-align: left;
-}
-
-.item-price {
-    font-weight: 700;
-    color: #2c1e14;
-    background: rgba(250, 240, 230, 0.9);
-    /* Padding for the price bubble */
-    padding: 4px 12px;
-    border-radius: 30px;
-    white-space: nowrap;
-    font-size: 1rem;
-    border: 1px solid #d4b28c;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: inline-block;
-    width: auto;
-    line-height: 1.2;
-    margin-left: 15px; /* Creates gap from name */
-    /* Align to right corner */
-    margin-right: 0;
-}
-
-/* FOOTER STYLING */
-.menu-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 15px 10px 5px;
-    font-size: 1.3rem;
-    color: #2c1e14;
-    border-top: 2px dashed rgba(180, 140, 92, 0.6);
-    font-weight: 500;
-    background: rgba(255, 255, 245, 0.6);
-    border-radius: 0 0 30px 30px;
-    letter-spacing: 1px;
-}
-
-/* RESPONSIVE DESIGN */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
+// ===== FUNCTION TO CREATE MENU ITEM HTML =====
+function createMenuItem(item) {
+    const li = document.createElement('li');
+    li.className = 'menu-item';
     
-    .menu-container {
-        padding: 20px 15px;
-        background: rgba(255, 255, 255, 0.2);
-    }
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'item-name';
+    nameSpan.textContent = item.name;
     
-    .section-title {
-        font-size: 1.6rem;
-        padding: 8px 16px;
-    }
+    const priceSpan = document.createElement('span');
+    priceSpan.className = 'item-price';
+    priceSpan.textContent = `${item.price} Br`;
     
-    .subsection-title {
-        font-size: 1.2rem;
-        padding: 6px 12px;
-    }
+    li.appendChild(nameSpan);
+    li.appendChild(priceSpan);
     
-    .menu-item {
-        font-size: 0.95rem;
-    }
-    
-    .menu-item-inner {
-        padding: 6px 12px;
-        border-radius: 30px;
-    }
-    
-    .item-price {
-        padding: 3px 10px;
-        font-size: 0.9rem;
-        margin-left: 10px;
-    }
-    
-    .menu-footer {
-        font-size: 1.1rem;
-    }
+    return li;
 }
 
-@media screen and (max-width: 480px) {
-    .menu-item-inner {
-        flex-wrap: wrap;
-        gap: 8px;
-        border-radius: 20px;
-        padding: 8px 12px;
-    }
+// ===== FUNCTION TO CREATE SUBSECTION =====
+function createSubsection(title, items) {
+    const subsection = document.createElement('div');
+    subsection.className = 'subsection';
     
-    .item-name {
-        width: 100%;
-        text-align: left;
-        white-space: normal;
-        margin-bottom: 4px;
-    }
+    const titleEl = document.createElement('h3');
+    titleEl.className = 'subsection-title';
+    titleEl.textContent = title;
+    subsection.appendChild(titleEl);
     
-    .item-price {
-        margin-left: 0;
-        margin-right: auto; /* Align to left when wrapped */
-        padding: 3px 10px;
-    }
+    const ul = document.createElement('ul');
+    ul.className = 'menu-items';
     
-    .logo {
-        width: 85%;
-    }
+    items.forEach(item => {
+        ul.appendChild(createMenuItem(item));
+    });
     
-    .menu-container {
-        background: rgba(255, 255, 255, 0.15);
-    }
+    subsection.appendChild(ul);
+    return subsection;
 }
 
-/* DYNAMIC MENU STYLING */
-.dynamic-menu {
-    display: block;
+// ===== BUILD THE COMPLETE DYNAMIC MENU =====
+function buildDynamicMenu() {
+    const dynamicMenu = document.getElementById('dynamicMenu');
+    if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'CAKES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake));
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
 }
 
-.js-active .fallback-menu {
-    display: none;
-}
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
 
-.js-active .dynamic-menu {
-    display: block;
-}
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    }
+};
