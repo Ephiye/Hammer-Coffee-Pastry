@@ -101,7 +101,7 @@ function buildDynamicMenu() {
     
     const cakesTitle = document.createElement('h2');
     cakesTitle.className = 'section-title';
-    cakesTitle.textContent = 'CAKES';
+    cakesTitle.textContent = 'PASTRIES';
     cakesSection.appendChild(cakesTitle);
     
     const cakesUl = document.createElement('ul');
