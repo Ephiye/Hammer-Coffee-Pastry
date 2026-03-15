@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hammer Coffee & Pastry · Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background image is applied in CSS -->
+    
+    <div class="menu-container">
+        <!-- Logo at top center -->
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="Hammer Coffee & Pastry Logo" class="logo">
+        </div>
+
+        <!-- FALLBACK MENU (static - shown when JS is disabled) -->
+        <div class="fallback-menu" id="fallbackMenu">
+            <!-- CAKES SECTION -->
+            <section class="menu-section">
+                <h2 class="section-title">CAKES</h2>
+                <ul class="menu-items">
+                    <li class="menu-item"><span class="item-name">Boxegna (custard-filled cream puff)</span><span class="item-price">60 Br</span></li>
+                    <li class="menu-item"><span class="item-name">Mille feuille</span><span class="item-price">60 Br</span></li>
+                    <li class="menu-item"><span class="item-name">Custard cake</span><span class="item-price">60 Br</span></li>
+                    <li class="menu-item"><span class="item-name">Chocolate cake</span><span class="item-price">60 Br</span></li>
+                    <li class="menu-item"><span class="item-name">Banana cake</span><span class="item-price">60 Br</span></li>
+                    <li class="menu-item"><span class="item-name">English cake</span><span class="item-price">60 Br</span></li>
+                    <li class="menu-item"><span class="item-name">Croissant</span><span class="item-price">60 Br</span></li>
+                </ul>
+            </section>
+
+            <!-- DRINKS SECTION -->
+            <section class="menu-section">
+                <h2 class="section-title">DRINKS</h2>
+                
+                <!-- Hot Tea Subsection -->
+                <div class="subsection">
+                    <h3 class="subsection-title">HOT TEA</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item"><span class="item-name">TEA</span><span class="item-price">80 Br</span></li>
+                        <li class="menu-item"><span class="item-name">GREEN TEA</span><span class="item-price">90 Br</span></li>
+                        <li class="menu-item"><span class="item-name">GINGER TEA</span><span class="item-price">90 Br</span></li>
+                        <li class="menu-item"><span class="item-name">GINGER WITH HONEY</span><span class="item-price">120 Br</span></li>
+                        <li class="menu-item"><span class="item-name">SPECIAL TEA</span><span class="item-price">150 Br</span></li>
+                        <li class="menu-item"><span class="item-name">HOT CHOCOLATE</span><span class="item-price">200 Br</span></li>
+                        <li class="menu-item"><span class="item-name">PEANUT TEA</span><span class="item-price">130 Br</span></li>
+                    </ul>
+                </div>
+
+                <!-- Espresso & Coffee Subsection -->
+                <div class="subsection">
+                    <h3 class="subsection-title">ESPRESSO & COFFEE</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item"><span class="item-name">ESPRESSO</span><span class="item-price">110 Br</span></li>
+                        <li class="menu-item"><span class="item-name">DOUBLE ESPRESSO</span><span class="item-price">140 Br</span></li>
+                        <li class="menu-item"><span class="item-name">SYPHON COFFEE</span><span class="item-price">80 Br</span></li>
+                        <li class="menu-item"><span class="item-name">TEA ESPRESSO</span><span class="item-price">90 Br</span></li>
+                        <li class="menu-item"><span class="item-name">MACCHIATO</span><span class="item-price">130 Br</span></li>
+                        <li class="menu-item"><span class="item-name">DOUBLE MACCHIATO</span><span class="item-price">170 Br</span></li>
+                        <li class="menu-item"><span class="item-name">FASTING MACCHIATO</span><span class="item-price">250 Br</span></li>
+                        <li class="menu-item"><span class="item-name">CAFÉ LATTE</span><span class="item-price">150 Br</span></li>
+                        <li class="menu-item"><span class="item-name">CAPPUCCINO</span><span class="item-price">180 Br</span></li>
+                        <li class="menu-item"><span class="item-name">PEANUT COFFEE</span><span class="item-price">130 Br</span></li>
+                    </ul>
+                </div>
+
+                <!-- Cold Drinks Subsection -->
+                <div class="subsection">
+                    <h3 class="subsection-title">COLD DRINKS</h3>
+                    <ul class="menu-items">
+                        <li class="menu-item"><span class="item-name">ICE LATTE</span><span class="item-price">210 Br</span></li>
+                        <li class="menu-item"><span class="item-name">FASTING ICE LATTE</span><span class="item-price">250 Br</span></li>
+                        <li class="menu-item"><span class="item-name">ICE COFFEE</span><span class="item-price">150 Br</span></li>
+                        <li class="menu-item"><span class="item-name">ICE TEA</span><span class="item-price">130 Br</span></li>
+                        <li class="menu-item"><span class="item-name">WATER</span><span class="item-price">100 Br</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FOOTER (static) -->
+            <div class="menu-footer">
+                <p>✧ Sweet cakes, strong coffee and a bright day. ✧</p>
+            </div>
+        </div>
+
+        <!-- DYNAMIC MENU (filled by JavaScript) -->
+        <div class="dynamic-menu" id="dynamicMenu"></div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    <!-- Noscript fallback -->
+    <noscript>
+        <style>
+            .dynamic-menu { display: none; }
+            .fallback-menu { display: block; }
+        </style>
+    </noscript>
+</body>
+</html>
