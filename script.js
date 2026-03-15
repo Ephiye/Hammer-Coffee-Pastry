@@ -5,7 +5,7 @@ document.body.classList.add('js-active');
 
 // ===== MENU DATA OBJECT - EASILY EDITABLE =====
 const menuData = {
-    pastries: [
+    cakes: [
         { name: "Boxegna (custard-filled cream puff)", price: 60 },
         { name: "Mille feuille", price: 60 },
         { name: "Custard cake", price: 60 },
