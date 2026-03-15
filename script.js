@@ -12,7 +12,8 @@ const menuData = {
         { name: "Chocolate cake", price: 60 },
         { name: "Banana cake", price: 60 },
         { name: "English cake", price: 60 },
-        { name: "Croissant", price: 6 }
+        { name: "Croissant", price: 6 },
+        { name: "Croissa", price: 67 }
     ],
     drinks: {
         hotTea: [
