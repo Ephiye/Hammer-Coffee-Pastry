@@ -62,6 +62,7 @@ function createMenuItem(item) {
     
     const priceSpan = document.createElement('span');
     priceSpan.className = 'item-price';
+    // FIXED: Added backticks for template literal
     priceSpan.textContent = `${item.price} Br`;
     
     li.appendChild(nameSpan);
@@ -70,8 +71,16 @@ function createMenuItem(item) {
     return li;
 }
 
-// ===== FUNCTION TO CREATE SUBSECTION ITEMS (without title wrapper) =====
-function createSubsectionItems(items) {
+// ===== FUNCTION TO CREATE SUBSECTION =====
+function createSubsection(title, items) {
+    const subsection = document.createElement('div');
+    subsection.className = 'subsection';
+    
+    const titleEl = document.createElement('h3');
+    titleEl.className = 'subsection-title';
+    titleEl.textContent = title;
+    subsection.appendChild(titleEl);
+    
     const ul = document.createElement('ul');
     ul.className = 'menu-items';
     
@@ -79,26 +88,7 @@ function createSubsectionItems(items) {
         ul.appendChild(createMenuItem(item));
     });
     
-    return ul;
-}
-
-// ===== FUNCTION TO CREATE SUBSECTION WITH TITLE WRAPPER =====
-function createSubsection(title, items) {
-    const subsection = document.createElement('div');
-    subsection.className = 'subsection';
-    
-    // Create wrapper for subsection title
-    const titleWrapper = document.createElement('div');
-    titleWrapper.className = 'subsection-title-wrapper';
-    
-    const titleEl = document.createElement('h3');
-    titleEl.className = 'subsection-title';
-    titleEl.textContent = title;
-    titleWrapper.appendChild(titleEl);
-    
-    subsection.appendChild(titleWrapper);
-    subsection.appendChild(createSubsectionItems(items));
-    
+    subsection.appendChild(ul);
     return subsection;
 }
 
@@ -114,15 +104,10 @@ function buildDynamicMenu() {
     const pastriesSection = document.createElement('section');
     pastriesSection.className = 'menu-section';
     
-    // Create wrapper for section title
-    const pastriesTitleWrapper = document.createElement('div');
-    pastriesTitleWrapper.className = 'section-title-wrapper';
-    
     const pastriesTitle = document.createElement('h2');
     pastriesTitle.className = 'section-title';
     pastriesTitle.textContent = 'PASTRIES';
-    pastriesTitleWrapper.appendChild(pastriesTitle);
-    pastriesSection.appendChild(pastriesTitleWrapper);
+    pastriesSection.appendChild(pastriesTitle);
     
     const pastriesUl = document.createElement('ul');
     pastriesUl.className = 'menu-items';
@@ -138,15 +123,10 @@ function buildDynamicMenu() {
     const tortasSection = document.createElement('section');
     tortasSection.className = 'menu-section';
     
-    // Create wrapper for section title
-    const tortasTitleWrapper = document.createElement('div');
-    tortasTitleWrapper.className = 'section-title-wrapper';
-    
     const tortasTitle = document.createElement('h2');
     tortasTitle.className = 'section-title';
     tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
-    tortasTitleWrapper.appendChild(tortasTitle);
-    tortasSection.appendChild(tortasTitleWrapper);
+    tortasSection.appendChild(tortasTitle);
     
     const tortasUl = document.createElement('ul');
     tortasUl.className = 'menu-items';
@@ -162,15 +142,10 @@ function buildDynamicMenu() {
     const drinksSection = document.createElement('section');
     drinksSection.className = 'menu-section';
     
-    // Create wrapper for section title
-    const drinksTitleWrapper = document.createElement('div');
-    drinksTitleWrapper.className = 'section-title-wrapper';
-    
     const drinksTitle = document.createElement('h2');
     drinksTitle.className = 'section-title';
     drinksTitle.textContent = 'DRINKS';
-    drinksTitleWrapper.appendChild(drinksTitle);
-    drinksSection.appendChild(drinksTitleWrapper);
+    drinksSection.appendChild(drinksTitle);
     
     // Add Hot Tea subsection
     drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
