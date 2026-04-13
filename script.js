@@ -119,25 +119,6 @@ function buildDynamicMenu() {
     pastriesSection.appendChild(pastriesUl);
     dynamicMenu.appendChild(pastriesSection);
     
-    // ===== MINI CAKES SECTION =====
-    const miniCakesSection = document.createElement('section');
-    miniCakesSection.className = 'menu-section';
-    
-    const miniCakesTitle = document.createElement('h2');
-    miniCakesTitle.className = 'section-title';
-    miniCakesTitle.textContent = 'MINI CAKES';
-    miniCakesSection.appendChild(miniCakesTitle);
-    
-    const miniCakesUl = document.createElement('ul');
-    miniCakesUl.className = 'menu-items';
-    
-    menuData.miniCakes.forEach(miniCake => {
-        miniCakesUl.appendChild(createMenuItem(miniCake));
-    });
-    
-    miniCakesSection.appendChild(miniCakesUl);
-    dynamicMenu.appendChild(miniCakesSection);
-    
     // ===== TORTAS SECTION =====
     const tortasSection = document.createElement('section');
     tortasSection.className = 'menu-section';
@@ -197,10 +178,6 @@ document.addEventListener('DOMContentLoaded', function() {
 window.updateMenu = {
     addCake: function(name, price) {
         menuData.cakes.push({ name, price });
-        buildDynamicMenu();
-    },
-    addMiniCake: function(name, price) {
-        menuData.miniCakes.push({ name, price });
         buildDynamicMenu();
     },
     addTorta: function(name, price) {
