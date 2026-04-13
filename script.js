@@ -807,5 +807,5 @@ window.updateMenu = {
     addColdDrink: function(name, price) {
         menuData.drinks.coldDrinks.push({ name, price });
         buildDynamicMenu();
-    } 
+  } 
 };
