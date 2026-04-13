@@ -15,7 +15,7 @@ body {
     position: relative;
 }
 
-/* Semi-transparent overlay for better text readability */
+/* Light overlay for better text readability - minimum opacity */
 body::before {
     content: '';
     position: fixed;
@@ -23,7 +23,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 248, 235, 0.85);
+    background: rgba(255, 248, 235, 0.35);
     z-index: -1;
 }
 
@@ -31,11 +31,11 @@ body::before {
 .menu-container {
     max-width: 1200px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.55);
     border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     padding: 30px;
-    backdrop-filter: blur(2px);
+    /* NO BLUR EFFECT */
 }
 
 /* ===== LOGO SECTION ===== */
@@ -48,14 +48,15 @@ body::before {
     max-width: 200px;
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* ===== MENU SECTIONS ===== */
 .menu-section {
     margin-bottom: 40px;
     padding-bottom: 20px;
-    border-bottom: 2px dashed #e0c8a8;
+    border-bottom: 2px dashed rgba(224, 200, 168, 0.6);
 }
 
 .menu-section:last-of-type {
@@ -65,12 +66,13 @@ body::before {
 .section-title {
     font-size: 2rem;
     text-align: center;
-    color: #6b3e2c;
+    color: #3d2517;
     margin-bottom: 25px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
     position: relative;
     padding-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .section-title::after {
@@ -81,7 +83,7 @@ body::before {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: #c49a6c;
+    background: #8b5a3c;
     border-radius: 2px;
 }
 
@@ -92,11 +94,12 @@ body::before {
 
 .subsection-title {
     font-size: 1.3rem;
-    color: #8b5a3c;
+    color: #4a2a1a;
     margin-bottom: 15px;
     padding-left: 15px;
-    border-left: 4px solid #c49a6c;
-    font-weight: 500;
+    border-left: 4px solid #8b5a3c;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* ===== MENU ITEMS LIST ===== */
@@ -112,30 +115,30 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 12px 15px;
-    background: #fef9f0;
+    background: rgba(254, 249, 240, 0.85);
     border-radius: 10px;
     transition: all 0.3s ease;
-    border: 1px solid #f0e4d0;
+    border: 1px solid rgba(224, 200, 168, 0.5);
 }
 
 .menu-item:hover {
-    background: #fff5e8;
+    background: rgba(255, 245, 232, 0.95);
     transform: translateX(5px);
-    border-color: #c49a6c;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-color: #8b5a3c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-name {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: #2c1810;
     flex: 1;
 }
 
 .item-price {
     font-size: 1rem;
-    font-weight: 600;
-    color: #6b3e2c;
+    font-weight: 700;
+    color: #5a2e1a;
     margin-left: 15px;
     white-space: nowrap;
 }
@@ -148,7 +151,7 @@ body::before {
     margin-bottom: 30px;
     justify-content: center;
     padding: 15px;
-    background: #f5f0e8;
+    background: rgba(245, 240, 232, 0.7);
     border-radius: 50px;
 }
 
@@ -156,35 +159,35 @@ body::before {
     flex: 1;
     min-width: 200px;
     padding: 12px 20px;
-    border: 2px solid #e0c8a8;
+    border: 2px solid rgba(224, 200, 168, 0.6);
     border-radius: 25px;
     font-size: 14px;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     transition: all 0.3s ease;
 }
 
 .menu-search:focus {
     outline: none;
-    border-color: #c49a6c;
-    box-shadow: 0 0 0 3px rgba(196, 154, 108, 0.1);
+    border-color: #8b5a3c;
+    box-shadow: 0 0 0 3px rgba(139, 90, 60, 0.1);
 }
 
 .menu-btn {
     padding: 10px 20px;
-    background: #6b3e2c;
+    background: #5a2e1a;
     color: white;
     border: none;
     border-radius: 25px;
     cursor: pointer;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
 .menu-btn:hover {
-    background: #8b5a3c;
+    background: #7a3e22;
     transform: translateY(-2px);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .menu-btn:active {
@@ -195,12 +198,12 @@ body::before {
 .item-count {
     text-align: center;
     padding: 10px;
-    background: #f5f0e8;
+    background: rgba(245, 240, 232, 0.7);
     border-radius: 25px;
     margin-bottom: 20px;
     font-size: 14px;
-    color: #6b3e2c;
-    font-weight: 500;
+    color: #5a2e1a;
+    font-weight: 600;
 }
 
 /* ===== FOOTER ===== */
@@ -208,10 +211,12 @@ body::before {
     text-align: center;
     margin-top: 40px;
     padding-top: 20px;
-    border-top: 2px solid #e0c8a8;
+    border-top: 2px solid rgba(224, 200, 168, 0.6);
     font-style: italic;
-    color: #8b5a3c;
+    color: #4a2a1a;
     font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* ===== LOADING & ERROR STATES ===== */
@@ -219,13 +224,13 @@ body::before {
     text-align: center;
     padding: 40px;
     font-size: 18px;
-    background: #fef9f0;
+    background: rgba(254, 249, 240, 0.9);
     border-radius: 10px;
     margin: 20px 0;
 }
 
 .loading {
-    color: #6b3e2c;
+    color: #5a2e1a;
 }
 
 .error {
@@ -262,6 +267,7 @@ body.js-active #dynamicMenu {
     .menu-container {
         box-shadow: none;
         padding: 0;
+        background: white;
     }
     
     .menu-controls, 
@@ -368,17 +374,17 @@ body.js-active #dynamicMenu {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f0e4d0;
+    background: rgba(240, 228, 208, 0.5);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #c49a6c;
+    background: #8b5a3c;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #8b5a3c;
+    background: #5a2e1a;
 }
 
 /* ===== SPECIAL EFFECTS ===== */
@@ -396,7 +402,7 @@ body.js-active #dynamicMenu {
 
 /* Hover effect for price */
 .menu-item:hover .item-price {
-    color: #c49a6c;
+    color: #8b5a3c;
     transform: scale(1.05);
     display: inline-block;
 }
@@ -404,6 +410,6 @@ body.js-active #dynamicMenu {
 /* Focus styles for accessibility */
 .menu-btn:focus,
 .menu-search:focus {
-    outline: 2px solid #c49a6c;
+    outline: 2px solid #8b5a3c;
     outline-offset: 2px;
 }
