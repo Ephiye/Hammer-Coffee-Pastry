@@ -13,14 +13,6 @@ const menuData = {
         { name: "Banana cake", price: 60 },
         { name: "English cake", price: 60 }
     ],
-    miniCakes: [
-        { name: "Boxegna (custard-filled cream puff)", price: 60 },
-        { name: "Mille feuille", price: 70 },
-        { name: "Custard cake", price: 70 },
-        { name: "Chocolate cake", price: 70 },
-        { name: "Banana cake", price: 60 },
-        { name: "English cake", price: 60 }
-    ],
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
         { name: "1kg Custard cake", price: 3000 },
