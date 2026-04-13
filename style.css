@@ -1,262 +1,408 @@
-/* ===== CSS - Hammer Coffee & Pastry Menu ===== */
-/* BACKGROUND PHOTO IS NOW HIGHLY VISIBLE */
-
+[4/13/2026 5:47 PM] Belidet: /* ===== RESET & BASE STYLES ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #2c1810;
+    line-height: 1.6;
     padding: 20px;
     position: relative;
 }
 
-/* BACKGROUND IMAGE - FULLY VISIBLE WITH NO OVERLAY */
+/* Semi-transparent overlay for better text readability */
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('hammer.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: -2;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 248, 235, 0.85);
+    z-index: -1;
 }
 
-/* MAIN MENU CONTAINER - EXTREMELY TRANSPARENT */
+/* ===== MENU CONTAINER ===== */
 .menu-container {
     max-width: 1200px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-    padding: 30px 25px;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    backdrop-filter: blur(2px);
 }
 
-/* LOGO STYLING */
+/* ===== LOGO SECTION ===== */
 .logo-wrapper {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .logo {
-    max-width: 250px;
-    width: 70%;
+    max-width: 200px;
     height: auto;
-    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.1));
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* FALLBACK MENU STYLING */
-.fallback-menu {
-    display: none;
+/* ===== MENU SECTIONS ===== */
+.menu-section {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #e0c8a8;
 }
 
-/* SECTION TITLES */
+.menu-section:last-of-type {
+    border-bottom: none;
+}
+
 .section-title {
     font-size: 2rem;
-    font-weight: 700;
-    color: #2c1e14;
     text-align: center;
+    color: #6b3e2c;
+    margin-bottom: 25px;
+    font-weight: 600;
     letter-spacing: 2px;
-    margin: 25px 0 15px 0;
-    padding: 10px 20px;
-    background: rgba(255, 255, 245, 0.7);
-    display: inline-block;
-    width: auto;
-    border-radius: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 10px;
 }
 
-.menu-section {
-    text-align: center;
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #c49a6c;
+    border-radius: 2px;
+}
+
+/* ===== SUBSECTIONS ===== */
+.subsection {
+    margin-bottom: 30px;
 }
 
 .subsection-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #3a281e;
-    margin: 25px 0 15px 0;
-    padding: 8px 15px;
-    background: rgba(245, 235, 220, 0.8);
-    display: inline-block;
-    border-radius: 40px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1.3rem;
+    color: #8b5a3c;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border-left: 4px solid #c49a6c;
+    font-weight: 500;
 }
 
-/* ===== FIXED: MENU ITEMS WITH REDUCED GAP ===== */
+/* ===== MENU ITEMS LIST ===== */
 .menu-items {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 8px; /* Slightly reduced gap between items */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
 }
 
 .menu-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 15px; /* Reduced horizontal padding */
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 40px; /* Slightly smaller border radius */
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    transition: all 0.2s;
-    font-size: 1.1rem;
-    backdrop-filter: blur(2px);
+    padding: 12px 15px;
+    background: #fef9f0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0e4d0;
 }
 
 .menu-item:hover {
+    background: #fff5e8;
     transform: translateX(5px);
-    background: rgba(255, 255, 255, 0.8);
+    border-color: #c49a6c;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .item-name {
-    font-weight: 600;
-    color: #1f1a16;
-    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    /* REDUCED padding-right to bring price closer */
-    padding-right: 5px;
-    /* Allow text to shrink if needed */
-    flex: 1 1 auto;
-    /* Truncate extremely long names with ellipsis */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 70%; /* Prevents name from taking too much space */
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2c1810;
+    flex: 1;
 }
 
 .item-price {
-    font-weight: 700;
-    color: #2c1e14;
-    background: rgba(250, 240, 230, 0.9);
-    /* REDUCED horizontal padding to make price bubble smaller */
-    padding: 4px 12px; /* Was 5px 18px - reduced significantly */
-    border-radius: 30px; /* Slightly smaller radius */
-    white-space: nowrap;
     font-size: 1rem;
-    border: 1px solid #d4b28c;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    /* Ensure price stays compact */
-    display: inline-block;
-    /* Optional: make price background narrower for short prices */
-    min-width: 50px;
-    text-align: center;
+    font-weight: 600;
+    color: #6b3e2c;
+    margin-left: 15px;
+    white-space: nowrap;
 }
 
-/* FOOTER STYLING */
+/* ===== MENU CONTROLS (for dynamic menu) ===== */
+.menu-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+    padding: 15px;
+    background: #f5f0e8;
+    border-radius: 50px;
+}
+
+.menu-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 20px;
+    border: 2px solid #e0c8a8;
+    border-radius: 25px;
+    font-size: 14px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.menu-search:focus {
+    outline: none;
+    border-color: #c49a6c;
+    box-shadow: 0 0 0 3px rgba(196, 154, 108, 0.1);
+}
+
+.menu-btn {
+    padding: 10px 20px;
+    background: #6b3e2c;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+    background: #8b5a3c;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== ITEM COUNT DISPLAY ===== */
+.item-count {
+    text-align: center;
+    padding: 10px;
+    background: #f5f0e8;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #6b3e2c;
+    font-weight: 500;
+}
+[4/13/2026 5:47 PM] Belidet: /* ===== FOOTER ===== */
 .menu-footer {
     text-align: center;
     margin-top: 40px;
-    padding: 15px 10px 5px;
-    font-size: 1.3rem;
-    color: #2c1e14;
-    border-top: 2px dashed rgba(180, 140, 92, 0.6);
-    font-weight: 500;
-    background: rgba(255, 255, 245, 0.6);
-    border-radius: 0 0 30px 30px;
-    letter-spacing: 1px;
+    padding-top: 20px;
+    border-top: 2px solid #e0c8a8;
+    font-style: italic;
+    color: #8b5a3c;
+    font-size: 1rem;
 }
 
-/* RESPONSIVE DESIGN */
-@media screen and (max-width: 768px) {
+/* ===== LOADING & ERROR STATES ===== */
+.loading, .error {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    background: #fef9f0;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.loading {
+    color: #6b3e2c;
+}
+
+.error {
+    color: #d9534f;
+    border: 1px solid #d9534f;
+}
+
+/* ===== FALLBACK MENU (shown when JS is disabled) ===== */
+.fallback-menu {
+    display: block;
+}
+
+/* ===== DYNAMIC MENU (shown when JS is active) ===== */
+#dynamicMenu {
+    display: block;
+}
+
+/* Hide fallback menu when JS is active */
+body.js-active .fallback-menu {
+    display: none;
+}
+
+/* Ensure dynamic menu is visible when JS is active */
+body.js-active #dynamicMenu {
+    display: block;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body::before {
+        background: white;
+    }
+    
+    .menu-container {
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .menu-controls, 
+    .menu-btn,
+    .logo-wrapper {
+        display: none;
+    }
+    
+    .menu-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .menu-section {
+        break-inside: avoid;
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
     body {
         padding: 10px;
     }
     
     .menu-container {
-        padding: 20px 15px;
-        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
     }
     
     .section-title {
-        font-size: 1.6rem;
-        padding: 8px 16px;
+        font-size: 1.5rem;
     }
     
     .subsection-title {
-        font-size: 1.2rem;
-        padding: 6px 12px;
-    }
-    
-    .menu-item {
-        font-size: 0.95rem;
-        padding: 6px 12px; /* Reduced padding on mobile */
-        border-radius: 30px;
-    }
-    
-    .item-name {
-        padding-right: 4px;
-        max-width: 65%;
-    }
-    
-    .item-price {
-        padding: 3px 10px; /* Smaller padding on mobile */
-        font-size: 0.9rem;
-        min-width: 45px;
-    }
-    
-    .menu-footer {
         font-size: 1.1rem;
     }
-}
-
-@media screen and (max-width: 480px) {
+    
+    .menu-items {
+        grid-template-columns: 1fr;
+    }
+    
     .menu-item {
-        flex-wrap: wrap;
-        gap: 5px; /* Reduced gap when wrapped */
-        border-radius: 20px;
-        justify-content: space-between; /* Better for wrapped layout */
-        text-align: left;
-        padding: 8px 12px;
+        padding: 10px 12px;
     }
     
     .item-name {
-        width: auto; /* Not full width anymore */
-        text-align: left;
-        max-width: 65%;
-        white-space: normal; /* Allow wrapping on very small screens */
-        padding-right: 3px;
+        font-size: 0.9rem;
     }
     
     .item-price {
-        margin: 0; /* Remove auto margin */
-        min-width: 40px;
+        font-size: 0.9rem;
     }
     
-    .logo {
-        width: 85%;
+    .menu-controls {
+        flex-direction: column;
+        border-radius: 15px;
     }
     
+    .menu-search {
+        width: 100%;
+    }
+    
+    .menu-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
     .menu-container {
-        background: rgba(255, 255, 255, 0.15);
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .item-name {
+        font-size: 0.85rem;
+    }
+    
+    .item-price {
+        font-size: 0.85rem;
     }
 }
 
-/* DYNAMIC MENU STYLING */
-.dynamic-menu {
-    display: block;
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.js-active .fallback-menu {
-    display: none;
+.menu-section {
+    animation: fadeIn 0.5s ease-out;
 }
 
-.js-active .dynamic-menu {
-    display: block;
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0e4d0;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c49a6c;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #8b5a3c;
+}
+
+/* ===== SPECIAL EFFECTS ===== */
+.menu-section:first-child .section-title::before {
+    content: '🍰 ';
+}
+
+.menu-section:nth-child(2) .section-title::before {
+    content: '🎂 ';
+}
+
+.menu-section:nth-child(3) .section-title::before {
+    content: '☕ ';
+}
+
+/* Hover effect for price */
+.menu-item:hover .item-price {
+    color: #c49a6c;
+    transform: scale(1.05);
+    display: inline-block;
+}
+
+/* Focus styles for accessibility */
+.menu-btn:focus,
+.menu-search:focus {
+    outline: 2px solid #c49a6c;
+    outline-offset: 2px;
 }
