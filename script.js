@@ -11,7 +11,7 @@ const menuData = {
         { name: "Custard cake", price: 70 },
         { name: "Chocolate cake", price: 70 },
         { name: "Banana cake", price: 60 },
-        { name: "English cake", price: 60 }                                    
+        { name: "English cake", price: 60 }
     ],
     miniCakes: [
         { name: "Boxegna (custard-filled cream puff)", price: 60 },
@@ -19,12 +19,12 @@ const menuData = {
         { name: "Custard cake", price: 70 },
         { name: "Chocolate cake", price: 70 },
         { name: "Banana cake", price: 60 },
-        { name: "English cake", price: 60 }                                    
+        { name: "English cake", price: 60 }
     ],
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
         { name: "1kg Custard cake", price: 3000 },
-        { name: "1kg Chocolate cake", price: 3000 },
+        { name: "1kg Chocolate cake", price: 3000 }
     ],
     drinks: {
         hotTea: [
@@ -70,6 +70,7 @@ function createMenuItem(item) {
     
     const priceSpan = document.createElement('span');
     priceSpan.className = 'item-price';
+    // FIXED: Added backticks for template literal
     priceSpan.textContent = `${item.price} Br`;
     
     li.appendChild(nameSpan);
@@ -107,24 +108,24 @@ function buildDynamicMenu() {
     // Clear any existing content
     dynamicMenu.innerHTML = '';
     
-    // ===== CAKES SECTION =====
-    const cakesSection = document.createElement('section');
-    cakesSection.className = 'menu-section';
+    // ===== PASTRIES SECTION =====
+    const pastriesSection = document.createElement('section');
+    pastriesSection.className = 'menu-section';
     
-    const cakesTitle = document.createElement('h2');
-    cakesTitle.className = 'section-title';
-    cakesTitle.textContent = 'PASTRIES';
-    cakesSection.appendChild(cakesTitle);
+    const pastriesTitle = document.createElement('h2');
+    pastriesTitle.className = 'section-title';
+    pastriesTitle.textContent = 'PASTRIES';
+    pastriesSection.appendChild(pastriesTitle);
     
-    const cakesUl = document.createElement('ul');
-    cakesUl.className = 'menu-items';
+    const pastriesUl = document.createElement('ul');
+    pastriesUl.className = 'menu-items';
     
     menuData.cakes.forEach(cake => {
-        cakesUl.appendChild(createMenuItem(cake)); 
+        pastriesUl.appendChild(createMenuItem(cake));
     });
     
-    cakesSection.appendChild(cakesUl);
-    dynamicMenu.appendChild(cakesSection);
+    pastriesSection.appendChild(pastriesUl);
+    dynamicMenu.appendChild(pastriesSection);
     
     // ===== MINI CAKES SECTION =====
     const miniCakesSection = document.createElement('section');
