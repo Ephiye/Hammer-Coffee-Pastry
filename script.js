@@ -13,7 +13,7 @@ const menuData = {
         { name: "Banana cake", price: 60 },
         { name: "English cake", price: 60 }                                    
     ],
-    mini cakes: [  // Fixed: removed extra bracket before this line
+    minicakes: [  // Fixed: removed extra bracket before this line
         { name: "Boxegna (custard-filled cream puff)", price: 60 },
         { name: "Mille feuille", price: 70 },
         { name: "Custard cake", price: 70 },
