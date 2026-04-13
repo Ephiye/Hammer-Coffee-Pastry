@@ -7,12 +7,12 @@ document.body.classList.add('js-active');
 const menuData = {
    ],
        mini cakes: [
-        { name: "Boxegna (custard-filled cream puff)", price: 70 },
-        { name: "Mille feuille", price: 70 },
-        { name: "Custard cake", price: 65 },
+        { name: "Boxegna (custard-filled cream puff)", price: 60 },
+        { name: "Mille feuille", price: 60 },
+        { name: "Custard cake", price: 60 },
         { name: "Chocolate cake", price: 70 },
         { name: "Banana cake", price: 60 },
-        { name: "English cake", price: 60 },
+        { name: "English cake", price: 60 }
     ],
     drinks: {
         hotTea: [
