@@ -1,4 +1,4 @@
-[4/13/2026 5:47 PM] Belidet: /* ===== RESET & BASE STYLES ===== */
+/* ===== RESET & BASE STYLES ===== */
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('background.jpg') no-repeat center center fixed;
+    background: url('hammer.png') no-repeat center center fixed;
     background-size: cover;
     color: #2c1810;
     line-height: 1.6;
@@ -202,7 +202,8 @@ body::before {
     color: #6b3e2c;
     font-weight: 500;
 }
-[4/13/2026 5:47 PM] Belidet: /* ===== FOOTER ===== */
+
+/* ===== FOOTER ===== */
 .menu-footer {
     text-align: center;
     margin-top: 40px;
