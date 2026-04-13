@@ -1,4 +1,4 @@
- // ===== JavaScript - Dynamic Menu for Hammer Coffee & Pastry =====
+// ===== JavaScript - Dynamic Menu for Hammer Coffee & Pastry =====
 
 // Add class to body to indicate JS is active
 document.body.classList.add('js-active');
@@ -13,7 +13,7 @@ const menuData = {
         { name: "Banana cake", price: 60 },
         { name: "English cake", price: 60 }                                    
     ],
-    miniCakes: [  // Fixed: removed space in property name
+    miniCakes: [
         { name: "Boxegna (custard-filled cream puff)", price: 60 },
         { name: "Mille feuille", price: 70 },
         { name: "Custard cake", price: 70 },
@@ -22,9 +22,9 @@ const menuData = {
         { name: "English cake", price: 60 }                                    
     ],
     tortas: [
-        { name: "1kg Mille feuille", price: 3500 },  // Fixed: removed comma
-        { name: "1kg Custard cake", price: 3000 },   // Fixed: removed comma & typo
-        { name: "1kg Chocolate cake", price: 3000 }, // Fixed: removed comma
+        { name: "1kg Mille feuille", price: 3500 },
+        { name: "1kg Custard cake", price: 3000 },
+        { name: "1kg Chocolate cake", price: 3000 },
     ],
     drinks: {
         hotTea: [
@@ -57,7 +57,7 @@ const menuData = {
         ]
     },
     footer: "✧ Sweet cakes, strong coffee and a bright day. ✧"
-}; // Added missing closing brace
+};
 
 // ===== FUNCTION TO CREATE MENU ITEM HTML =====
 function createMenuItem(item) {
@@ -70,7 +70,7 @@ function createMenuItem(item) {
     
     const priceSpan = document.createElement('span');
     priceSpan.className = 'item-price';
-    priceSpan.textContent = ${item.price} Br;
+    priceSpan.textContent = `${item.price} Br`;
     
     li.appendChild(nameSpan);
     li.appendChild(priceSpan);
@@ -103,7 +103,8 @@ function createSubsection(title, items) {
 function buildDynamicMenu() {
     const dynamicMenu = document.getElementById('dynamicMenu');
     if (!dynamicMenu) return;
-[04/13/2026 5:23 PM] Ephi: // Clear any existing content
+    
+    // Clear any existing content
     dynamicMenu.innerHTML = '';
     
     // ===== CAKES SECTION =====
@@ -124,6 +125,25 @@ function buildDynamicMenu() {
     
     cakesSection.appendChild(cakesUl);
     dynamicMenu.appendChild(cakesSection);
+    
+    // ===== MINI CAKES SECTION =====
+    const miniCakesSection = document.createElement('section');
+    miniCakesSection.className = 'menu-section';
+    
+    const miniCakesTitle = document.createElement('h2');
+    miniCakesTitle.className = 'section-title';
+    miniCakesTitle.textContent = 'MINI CAKES';
+    miniCakesSection.appendChild(miniCakesTitle);
+    
+    const miniCakesUl = document.createElement('ul');
+    miniCakesUl.className = 'menu-items';
+    
+    menuData.miniCakes.forEach(miniCake => {
+        miniCakesUl.appendChild(createMenuItem(miniCake));
+    });
+    
+    miniCakesSection.appendChild(miniCakesUl);
+    dynamicMenu.appendChild(miniCakesSection);
     
     // ===== TORTAS SECTION =====
     const tortasSection = document.createElement('section');
@@ -184,6 +204,10 @@ document.addEventListener('DOMContentLoaded', function() {
 window.updateMenu = {
     addCake: function(name, price) {
         menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addMiniCake: function(name, price) {
+        menuData.miniCakes.push({ name, price });
         buildDynamicMenu();
     },
     addTorta: function(name, price) {
