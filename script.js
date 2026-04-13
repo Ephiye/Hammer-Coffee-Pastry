@@ -5,19 +5,26 @@ document.body.classList.add('js-active');
 
 // ===== MENU DATA OBJECT - EASILY EDITABLE =====
 const menuData = {
-       ],
-       mini cakes: [
+    cakes: [  // Added missing 'cakes' array
         { name: "Boxegna (custard-filled cream puff)", price: 60 },
         { name: "Mille feuille", price: 70 },
         { name: "Custard cake", price: 70 },
         { name: "Chocolate cake", price: 70 },
         { name: "Banana cake", price: 60 },
         { name: "English cake", price: 60 }                                    
-   ],
-   tortas: [
-      {name: "1kg Mille feuille", price: 3,500 },
-      {name: "1kg Custurd cake", price: 3,000 },
-      {name: "1kg Chocolate cake", price: 3,000 },
+    ],
+    mini cakes: [  // Fixed: removed extra bracket before this line
+        { name: "Boxegna (custard-filled cream puff)", price: 60 },
+        { name: "Mille feuille", price: 70 },
+        { name: "Custard cake", price: 70 },
+        { name: "Chocolate cake", price: 70 },
+        { name: "Banana cake", price: 60 },
+        { name: "English cake", price: 60 }                                    
+    ],
+    tortas: [
+        { name: "1kg Mille feuille", price: 3500 },  // Fixed: removed comma from price (3,500 -> 3500)
+        { name: "1kg Custurd cake", price: 3000 },   // Fixed: removed comma from price (3,000 -> 3000)
+        { name: "1kg Chocolate cake", price: 3000 }, // Fixed: removed comma from price (3,000 -> 3000)
     ],
     drinks: {
         hotTea: [
@@ -63,7 +70,7 @@ function createMenuItem(item) {
     
     const priceSpan = document.createElement('span');
     priceSpan.className = 'item-price';
-    priceSpan.textContent = `${item.price} Br`;
+    priceSpan.textContent = ${item.price} Br;
     
     li.appendChild(nameSpan);
     li.appendChild(priceSpan);
@@ -95,7 +102,7 @@ function createSubsection(title, items) {
 // ===== BUILD THE COMPLETE DYNAMIC MENU =====
 function buildDynamicMenu() {
     const dynamicMenu = document.getElementById('dynamicMenu');
-    if (!dynamicMenu) return;
+       if (!dynamicMenu) return;
     
     // Clear any existing content
     dynamicMenu.innerHTML = '';
@@ -114,11 +121,29 @@ function buildDynamicMenu() {
     
     menuData.cakes.forEach(cake => {
         cakesUl.appendChild(createMenuItem(cake)); 
-      
     });
     
     cakesSection.appendChild(cakesUl);
     dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
     
     // ===== DRINKS SECTION =====
     const drinksSection = document.createElement('section');
@@ -162,6 +187,10 @@ window.updateMenu = {
         menuData.cakes.push({ name, price });
         buildDynamicMenu();
     },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
     addHotTea: function(name, price) {
         menuData.drinks.hotTea.push({ name, price });
         buildDynamicMenu();
@@ -174,4 +203,609 @@ window.updateMenu = {
         menuData.drinks.coldDrinks.push({ name, price });
         buildDynamicMenu();
     }
+if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'PASTRIES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake)); 
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
+
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    }
+if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'PASTRIES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake)); 
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
+
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    }
+if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'PASTRIES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake)); 
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
+
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    }
+if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'PASTRIES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake)); 
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
+
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    }
+if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'PASTRIES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake)); 
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
+
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    } if (!dynamicMenu) return;
+    
+    // Clear any existing content
+    dynamicMenu.innerHTML = '';
+    
+    // ===== CAKES SECTION =====
+    const cakesSection = document.createElement('section');
+    cakesSection.className = 'menu-section';
+    
+    const cakesTitle = document.createElement('h2');
+    cakesTitle.className = 'section-title';
+    cakesTitle.textContent = 'PASTRIES';
+    cakesSection.appendChild(cakesTitle);
+    
+    const cakesUl = document.createElement('ul');
+    cakesUl.className = 'menu-items';
+    
+    menuData.cakes.forEach(cake => {
+        cakesUl.appendChild(createMenuItem(cake)); 
+    });
+    
+    cakesSection.appendChild(cakesUl);
+    dynamicMenu.appendChild(cakesSection);
+    
+    // ===== TORTAS SECTION (ADDED) =====
+    const tortasSection = document.createElement('section');
+    tortasSection.className = 'menu-section';
+    
+    const tortasTitle = document.createElement('h2');
+    tortasTitle.className = 'section-title';
+    tortasTitle.textContent = 'TORTAS (WHOLE CAKES)';
+    tortasSection.appendChild(tortasTitle);
+    
+    const tortasUl = document.createElement('ul');
+    tortasUl.className = 'menu-items';
+    
+    menuData.tortas.forEach(torta => {
+        tortasUl.appendChild(createMenuItem(torta));
+    });
+    
+    tortasSection.appendChild(tortasUl);
+    dynamicMenu.appendChild(tortasSection);
+    
+    // ===== DRINKS SECTION =====
+    const drinksSection = document.createElement('section');
+    drinksSection.className = 'menu-section';
+    
+    const drinksTitle = document.createElement('h2');
+    drinksTitle.className = 'section-title';
+    drinksTitle.textContent = 'DRINKS';
+    drinksSection.appendChild(drinksTitle);
+    
+    // Add Hot Tea subsection
+    drinksSection.appendChild(createSubsection('HOT TEA', menuData.drinks.hotTea));
+    
+    // Add Espresso & Coffee subsection
+    drinksSection.appendChild(createSubsection('ESPRESSO & COFFEE', menuData.drinks.espresso));
+    
+    // Add Cold Drinks subsection
+    drinksSection.appendChild(createSubsection('COLD DRINKS', menuData.drinks.coldDrinks));
+    
+    dynamicMenu.appendChild(drinksSection);
+    
+    // ===== FOOTER =====
+    const footer = document.createElement('div');
+    footer.className = 'menu-footer';
+    
+    const footerP = document.createElement('p');
+    footerP.textContent = menuData.footer;
+    footer.appendChild(footerP);
+    
+    dynamicMenu.appendChild(footer);
+}
+
+// ===== INITIALIZE =====
+document.addEventListener('DOMContentLoaded', function() {
+    buildDynamicMenu();
+});
+
+// ===== HELPER FUNCTIONS FOR FUTURE UPDATES =====
+window.updateMenu = {
+    addCake: function(name, price) {
+        menuData.cakes.push({ name, price });
+        buildDynamicMenu();
+    },
+    addTorta: function(name, price) {  // Added helper for tortas
+        menuData.tortas.push({ name, price });
+        buildDynamicMenu();
+    },
+    addHotTea: function(name, price) {
+        menuData.drinks.hotTea.push({ name, price });
+        buildDynamicMenu();
+    },
+    addEspresso: function(name, price) {
+        menuData.drinks.espresso.push({ name, price });
+        buildDynamicMenu();
+    },
+    addColdDrink: function(name, price) {
+        menuData.drinks.coldDrinks.push({ name, price });
+        buildDynamicMenu();
+    } 
 };
