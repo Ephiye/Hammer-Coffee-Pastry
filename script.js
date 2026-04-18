@@ -36,7 +36,7 @@ const menuData = {
             { name: "MACCHIATO", price: 150 },
             { name: "DOUBLE MACCHIATO", price: 200 },
             { name: "FASTING MACCHIATO", price: 250 },
-            { name: "CAFÉ LATTE", price: 150 },
+            { name: "CAFÉ LATTE", price: 170 },
             { name: "CAPPUCCINO", price: 180 },
             { name: "PEANUT COFFEE", price: 150 }
         ],
