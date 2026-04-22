@@ -16,7 +16,7 @@ const menuData = {
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
         { name: "1kg Custard cake", price: 3000 },
-        { name: "1kg Chocolate cake", price: 3000 }
+        { name: "1kg Chocolate cake", price: 3500 }
     ],
     drinks: {
         hotTea: [
@@ -32,7 +32,7 @@ const menuData = {
             { name: "ESPRESSO", price: 110 },
             { name: "DOUBLE ESPRESSO", price: 140 },
             { name: "SYPHON COFFEE", price: 80 },
-            { name: "TEA ESPRESSO", price: 100 },
+            { name: "TEA ESPRESSO", price: 90 },
             { name: "MACCHIATO", price: 150 },
             { name: "DOUBLE MACCHIATO", price: 200 },
             { name: "FASTING MACCHIATO", price: 250 },
