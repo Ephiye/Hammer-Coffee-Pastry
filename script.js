@@ -13,6 +13,8 @@ const menuData = {
         { name: "Banana cake", price: 140 },
         { name: "English cake", price: 200 },
         { name: "Orange cake", price: 140 },
+        { name:  "Croissant" , price: 150 },
+        { name: "Chocolate croissant", price: 160 }
     ],
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
