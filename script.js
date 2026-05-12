@@ -42,7 +42,7 @@ const menuData = {
             { name: "TEA ESPRESSO", price: 90 },
             { name: "MACCHIATO", price: 150 },
             { name: "DOUBLE MACCHIATO", price: 250 },
-            { name: "FASTING MACCHIATO", price: 250 },
+            { name: "FASTING MACCHIATO", price: 280 },
             { name: "CAFÉ LATTE", price: 260 },
             { name: "CAPPUCCINO", price: 180 },
             { name: "PEANUT COFFEE", price: 150 }
