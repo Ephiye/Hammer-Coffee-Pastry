@@ -16,8 +16,9 @@ const menuData = {
         { name:  "Croissant" , price: 150 },
         { name: "Chocolate croissant", price: 190 },
         { name: "Chocolate danish", price: 190 },
-        { name :"Tiramisu cake", price:190 },
-        { name :"Caramel toffee cake", price:190}
+        { name :"Tiramisu cake", price:230 },
+        { name :"Caramel toffee cake", price:230},
+        { name :"Black forest gateau", price:230}
     ],
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
@@ -40,15 +41,15 @@ const menuData = {
             { name: "SYPHON COFFEE", price: 80 },
             { name: "TEA ESPRESSO", price: 90 },
             { name: "MACCHIATO", price: 150 },
-            { name: "DOUBLE MACCHIATO", price: 200 },
+            { name: "DOUBLE MACCHIATO", price: 250 },
             { name: "FASTING MACCHIATO", price: 250 },
-            { name: "CAFÉ LATTE", price: 170 },
+            { name: "CAFÉ LATTE", price: 260 },
             { name: "CAPPUCCINO", price: 180 },
             { name: "PEANUT COFFEE", price: 150 }
         ],
         coldDrinks: [
-            { name: "ICE LATTE", price: 210 },
-            { name: "FASTING ICE LATTE", price: 250 },
+            { name: "ICE LATTE", price: 300 },
+            { name: "FASTING ICE LATTE", price: 320 },
             { name: "ICE COFFEE", price: 150 },
             { name: "ICE TEA", price: 130 },
             { name: "WATER", price: 100 }
