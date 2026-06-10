@@ -28,10 +28,10 @@ const menuData = {
     ],
     drinks: {
         hotTea: [
-            { name: "TEA", price: 90 },
+            { name: "TEA", price: 100 },
             { name: "GREEN TEA", price: 100 },
-            { name: "GINGER TEA", price: 100 },
-            { name: "GINGER WITH HONEY", price: 120 },
+            { name: "GINGER TEA", price: 130 },
+            { name: "GINGER WITH HONEY", price: 150 },
             { name: "SPECIAL TEA", price: 230 },
             { name: "HOT CHOCOLATE", price: 200 },
             { name: "PEANUT TEA", price: 150 }
@@ -45,7 +45,7 @@ const menuData = {
             { name: "DOUBLE MACCHIATO", price: 250 },
             { name: "FASTING MACCHIATO", price: 280 },
             { name: "CAFÉ LATTE", price: 260 },
-            { name: "CAPPUCCINO", price: 180 },
+            { name: "CAPPUCCINO", price: 230 },
             { name: "PEANUT COFFEE", price: 150 }
         ],
         coldDrinks: [
