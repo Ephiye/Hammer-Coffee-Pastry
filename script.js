@@ -10,6 +10,7 @@ const menuData = {
         { name: "Mille feuille", price: 70 },
         { name: "Custard cake", price: 70 },
         { name: "Chocolate cake", price: 70 },
+        { name: "Chocolate custard cake",price: 70 },
         { name: "Banana cake", price: 200 },
         { name: "English cake", price: 200 },
         { name: "Orange cake", price: 140 },
@@ -34,26 +35,31 @@ const menuData = {
             { name: "GINGER WITH HONEY", price: 150 },
             { name: "SPECIAL TEA", price: 230 },
             { name: "HOT CHOCOLATE", price: 200 },
-            { name: "PEANUT TEA", price: 150 }
+            { name: "PEANUT TEA", price: 150 },
+            { name: "TEA LATTE", price: 260 },
+            { name: "LEMON TEA", price: 120 }
         ],
         espresso: [
-            { name: "ESPRESSO", price: 110 },
-            { name: "DOUBLE ESPRESSO", price: 140 },
+            { name: "NORMAL COFFEE", price: 130 },
+            { name: "ESPRESSO", price: 150 },
+            { name: "DOUBLE ESPRESSO", price: 200 },
             { name: "SYPHON COFFEE", price: 80 },
-            { name: "TEA ESPRESSO", price: 90 },
+            { name: "TEA ESPRESSO", price: 110 },
             { name: "MACCHIATO", price: 150 },
             { name: "DOUBLE MACCHIATO", price: 250 },
             { name: "FASTING MACCHIATO", price: 280 },
             { name: "CAFÉ LATTE", price: 260 },
             { name: "CAPPUCCINO", price: 230 },
-            { name: "PEANUT COFFEE", price: 150 }
+            { name: "PEANUT COFFEE", price: 150 },
+            { name: "AMERICANO", price: 200}  
         ],
         coldDrinks: [
-            { name: "ICE LATTE", price: 300 },
-            { name: "FASTING ICE LATTE", price: 320 },
-            { name: "ICE COFFEE", price: 150 },
-            { name: "ICE TEA", price: 130 },
-            { name: "WATER", price: 100 }
+            { name: "ICED LATTE", price: 300 },
+            { name: "FASTING ICED LATTE", price: 320 },
+            { name: "ICED COFFEE", price: 150 },
+            { name: "ICED TEA", price: 130 },
+            { name: "WATER", price: 100 },
+            { name: "CHOCOLATE ICED LATTE", price: 350} 
         ]
     },
     footer: "✧ Sweet cakes, strong coffee and a bright day. ✧"
