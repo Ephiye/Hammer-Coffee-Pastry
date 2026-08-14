@@ -43,7 +43,7 @@ const menuData = {
             { name: "NORMAL COFFEE", price: 130 },
             { name: "ESPRESSO", price: 150 },
             { name: "DOUBLE ESPRESSO", price: 200 },
-            { name: "SYPHON COFFEE", price: 80 },
+            { name: "SYPHON COFFEE", price: 130 },
             { name: "TEA ESPRESSO", price: 110 },
             { name: "MACCHIATO", price: 150 },
             { name: "DOUBLE MACCHIATO", price: 250 },
@@ -51,7 +51,7 @@ const menuData = {
             { name: "CAFÉ LATTE", price: 260 },
             { name: "CAPPUCCINO", price: 230 },
             { name: "PEANUT COFFEE", price: 150 },
-            { name: "AMERICANO", price: 200}  
+            { name: "AMERICANO", price: 260}  
         ],
         coldDrinks: [
             { name: "ICED LATTE", price: 300 },
