@@ -6,11 +6,11 @@ document.body.classList.add('js-active');
 // ===== MENU DATA OBJECT - EASILY EDITABLE =====
 const menuData = {
     cakes: [
-        { name: "Boxegna (custard-filled cream puff)", price: 70 },
-        { name: "Mille feuille", price: 70 },
-        { name: "Custard cake", price: 70 },
-        { name: "Chocolate cake", price: 70 },
-        { name: "Chocolate custard cake",price: 70 },
+        { name: "Boxegna (custard-filled cream puff)", price: 80 },
+        { name: "Mille feuille", price: 80 },
+        { name: "Custard cake", price: 80 },
+        { name: "Chocolate cake", price: 80 },
+        { name: "Chocolate custard cake",price: 80 },
         { name: "Banana cake", price: 200 },
         { name: "English cake", price: 200 },
         { name: "Orange cake", price: 140 },
