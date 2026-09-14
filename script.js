@@ -29,22 +29,22 @@ const menuData = {
     ],
     drinks: {
         hotTea: [
-            { name: "TEA", price: 150 },
-            { name: "GREEN TEA", price: 100 },
+            { name: "TEA", price: 110 },
+            { name: "GREEN TEA", price: 110 },
             { name: "GINGER TEA", price: 150 },
-            { name: "GINGER WITH HONEY", price: 200 },
+            { name: "GINGER WITH HONEY", price: 180 },
             { name: "SPECIAL TEA", price: 250 },
             { name: "HOT CHOCOLATE", price: 300 },
-            { name: "PEANUT TEA", price: 200 },
+            { name: "PEANUT TEA", price: 180 },
             { name: "TEA LATTE", price: 300 },
-            { name: "LEMON TEA", price: 150 }
+            { name: "LEMON TEA", price: 130 }
         ],
         espresso: [
-            { name: "NORMAL COFFEE", price: 130 },
+            { name: "NORMAL COFFEE", price: 150 },
             { name: "ESPRESSO", price: 200 },
             { name: "DOUBLE ESPRESSO", price: 250 },
             { name: "SYPHON COFFEE", price: 200 },
-            { name: "TEA ESPRESSO", price: 200 },
+            { name: "TEA ESPRESSO", price: 130 },
             { name: "MACCHIATO", price: 200 },
             { name: "DOUBLE MACCHIATO", price: 300 },
             { name: "FASTING MACCHIATO", price: 300 },
