@@ -37,6 +37,7 @@ const menuData = {
             { name: "HOT CHOCOLATE", price: 300 },
             { name: "PEANUT TEA", price: 180 },
             { name: "TEA LATTE", price: 300 },
+            { name: "HOT MILK", price:300  },
             { name: "LEMON TEA", price: 130 }
         ],
         espresso: [
@@ -58,6 +59,7 @@ const menuData = {
             { name: "FASTING ICED LATTE", price: 350 },
             { name: "ICED COFFEE", price: 200 },
             { name: "ICED TEA", price: 150 },
+            { name: "ICED AMERICANO",price:270 },
             { name: "WATER", price: 100 },
             { name: "CHOCOLATE ICED LATTE", price: 350} 
         ]
