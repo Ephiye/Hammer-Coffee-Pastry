@@ -36,8 +36,8 @@ const menuData = {
             { name: "SPECIAL TEA", price: 250 },
             { name: "HOT CHOCOLATE", price: 300 },
             { name: "PEANUT TEA", price: 180 },
-            { name: "TEA LATTE", price: 300 },
-            { name: "HOT MILK", price:300  },
+            { name: "TEA LATTE", price: 290 },
+            { name: "HOT MILK", price:280 },
             { name: "LEMON TEA", price: 130 }
         ],
         espresso: [
