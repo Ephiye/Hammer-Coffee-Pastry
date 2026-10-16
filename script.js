@@ -53,7 +53,7 @@ const menuData = {
             { name: "CAPPUCCINO", price: 300 },
             { name: "PEANUT COFFEE", price: 200 },
             { name: "AMERICANO", price: 260}, 
-            { name: "CARAMEL MACCHIATO"}
+            { name: "CARAMEL MACCHIATO", price: 220}
         ],
         coldDrinks: [
             { name: "ICED LATTE", price: 300 },
@@ -63,7 +63,7 @@ const menuData = {
             { name: "ICED AMERICANO",price:270 },
             { name: "WATER", price: 100 },
             { name: "CHOCOLATE ICED LATTE", price: 350},
-            { name: "CARAMEL ICED LATTE",price 350}
+            { name: "CARAMEL ICED LATTE",price: 350}
         ]
     },
     footer: "✧ Sweet cakes, strong coffee and a bright day. ✧"
