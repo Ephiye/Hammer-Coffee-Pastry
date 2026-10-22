@@ -14,13 +14,11 @@ const menuData = {
         { name: "Banana cake", price: 200 },
         { name: "English cake", price: 200 },
         { name: "Orange cake", price: 140 },
-        { name: "Brownie cake", price: 230 },
-        { name:  "Croissant" , price: 250 },
+        { name: "Brownie cake", price: 200 },
+        { name: "Croissant" , price: 250 },
         { name: "Chocolate croissant", price: 290 },
-        { name: "Chocolate danish", price: 190 },
-        { name :"Tiramisu cake", price:230 },
-        { name :"Caramel toffee cake", price:230},
-        { name :"Black forest gateau", price:230}
+        { name: "Chocolate chip cookie", price: 150 },
+        { name :"Brioche bread", price:150}
     ],
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
