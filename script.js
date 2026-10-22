@@ -25,7 +25,7 @@ const menuData = {
     tortas: [
         { name: "1kg Mille feuille", price: 3500 },
         { name: "1kg Custard cake", price: 3000 },
-        { name: "1kg Chocolate cake", price: 3500 }
+        { name: "1kg Chocolate cake", price: 2500 }
     ],
     drinks: {
         hotTea: [
