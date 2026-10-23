@@ -16,7 +16,7 @@ const menuData = {
         { name: "Orange cake", price: 140 },
         { name: "Brownie cake", price: 200 },
         { name: "Croissant" , price: 250 },
-        { name: "Chocolate croissant", price: 290 },
+        { name: "Chocolate croissant", price: 270 },
         { name: "Chocolate chip cookie", price: 150 },
         { name :"Brioche bread", price:150}
     ],
